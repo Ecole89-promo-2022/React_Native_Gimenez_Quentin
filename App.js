@@ -7,6 +7,11 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import CardDetails from './components/CardDetails';
+import Countries from './components/Countries';
+import Clans from './components/Clans';
+import Clan from './components/Clan';
+import Player from './components/Player';
+import { SearchPlayer } from './components/SearchPlayer';
 
 const Stack = createNativeStackNavigator();
 const logo = require('./assets/logo.png');
@@ -35,11 +40,14 @@ const CustomHeader = () => {
             <TouchableOpacity style={styles.menuItem} onPress={() => { navigation.navigate('Profile'); setMenuVisible(false); }}>
               <Text style={styles.menuText}>👤 Profil</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
-              <Text style={styles.menuText}>🔍 Rechercher un joueur</Text>
+            <TouchableOpacity style={styles.menuItem} onPress={() => { navigation.navigate('SearchPlayer'); setMenuVisible(false); }}>
+              <Text style={styles.menuText}>🔍 Search Player</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem}>
-              <Text style={styles.menuText}>🏆 Rechercher un clan</Text>
+              <Text style={styles.menuText}>🏆 Search Clan</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => { navigation.navigate('Countries'); setMenuVisible(false); }}>
+              <Text style={styles.menuText}>🌍 Countries</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -59,6 +67,11 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} options={{ title: 'Home' }} />
         <Stack.Screen name="Profile" component={Profile} options={{ title: 'Profile' }} />
         <Stack.Screen name="CardDetails" component={CardDetails} options={{ title: 'Détails de la carte' }} />
+        <Stack.Screen name="Countries" component={Countries} options={{ title: 'Pays Disponibles' }} />
+        <Stack.Screen name="Clans" component={Clans} options={{ title: 'Clans' }} />
+        <Stack.Screen name="Clan" component={Clan} options={{ title: 'Clan' }} />
+        <Stack.Screen name="Player" component={Player} options={{ title: 'Player' }} />
+        <Stack.Screen name="SearchPlayer" component={SearchPlayer} options={{title: 'SearchPlayer'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -81,7 +94,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)', // Assombrit légèrement l’arrière-plan
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
   },
