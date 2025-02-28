@@ -12,6 +12,7 @@ import Clans from './components/Clans';
 import Clan from './components/Clan';
 import Player from './components/Player';
 import { SearchPlayer } from './components/SearchPlayer';
+import { SearchClan } from './components/SearchClan';
 
 const Stack = createNativeStackNavigator();
 const logo = require('./assets/logo.png');
@@ -43,7 +44,7 @@ const CustomHeader = () => {
             <TouchableOpacity style={styles.menuItem} onPress={() => { navigation.navigate('SearchPlayer'); setMenuVisible(false); }}>
               <Text style={styles.menuText}>🔍 Search Player</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
+            <TouchableOpacity style={styles.menuItem} onPress={() => { navigation.navigate('SearchClan'); setMenuVisible(false); }}>
               <Text style={styles.menuText}>🏆 Search Clan</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => { navigation.navigate('Countries'); setMenuVisible(false); }}>
@@ -72,6 +73,7 @@ export default function App() {
         <Stack.Screen name="Clan" component={Clan} options={{ title: 'Clan' }} />
         <Stack.Screen name="Player" component={Player} options={{ title: 'Player' }} />
         <Stack.Screen name="SearchPlayer" component={SearchPlayer} options={{title: 'SearchPlayer'}} />
+        <Stack.Screen name="SearchClan" component={SearchClan} options={{title: 'SearchClan'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
